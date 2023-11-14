@@ -116,6 +116,12 @@ a {
   text-decoration: none;
 }
 
+
+
+
+
+
+
 img { height: auto; }
 
 button {
@@ -177,7 +183,7 @@ body {
 .h1 {
   color: var(--white);
   font-family: var(--ff-bangers);
-  font-size: var(--fs-1);
+  font-size: var(--fs-2);
   font-weight: var(--fw-400);
   letter-spacing: 1px;
 }
@@ -387,7 +393,13 @@ body {
   text-align: center;
 }
 
-.hero-title .span { font-size: 0.5em; }
+.hero-title{
+  margin-top: 30px;
+}
+
+.hero-title .span {
+  font-size: 0.5em; 
+}
 
 .hero-text {
   color: var(--white);
@@ -399,8 +411,62 @@ body {
 .hero .btn:is(:hover, :focus) { background-color: var(--portland-orange); }
 
 
+/*-----------------------------------*\
+  #button
+\*-----------------------------------*/
 
 
+
+.button {
+  position: relative;
+  background-color: var(--black);
+  color: var(--white);
+  max-width: max-content;
+  padding: 8vw 8vw;
+  font-weight: var(--fw-700);
+  border-radius: 100%;
+  overflow: hidden;
+  text-align: center;
+  /* font-size: var(--fs-3); */
+  font-family: var(--ff-bangers);
+  font-size: var(--fs-2);
+  font-weight: var(--fw-400);
+  letter-spacing: 1px;
+}
+
+.button #splash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.icon-btn {
+  border: none;
+  background-color: transparent;
+  outline: 0;
+  position: absolute;
+  margin: 5rem 25rem;
+}
+
+.icon-btn i {
+  cursor: pointer;
+}
+
+.icon-btn i.spin-animation {
+  animation-name: spin;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  transform-origin: center;
+} 
 
 /*-----------------------------------*\
   #CATEGORY
@@ -552,6 +618,7 @@ body {
   background-color: var(--white);
   color: var(--black);
 }
+
 
 
 

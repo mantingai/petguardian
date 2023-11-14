@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- 
     - primary meta tag
@@ -22,6 +23,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/_style.scss">
 
   <!-- 
     - google font link
@@ -63,7 +65,7 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#shop" class="navbar-link" data-nav-link>Shop</a>
+            <a href="#data" class="navbar-link" data-nav-link>Data</a>
           </li>
 
           <!-- <li class="navbar-item">
@@ -119,13 +121,22 @@
         style="background-image: url('./assets/images/hero-banner.jpg')">
         <div class="container">
 
-          <h1 class="h1 hero-title">
-            <span class="span">Hungry?</span> Check 
-          </h1>
+          <div class="button" onmousedown="buttonClick()">Dispenser <br>Now
+            <div id="splash"></div>
+          </div>
 
-          <p class="hero-text">...</p>
+          <h3 class="h1 hero-title">
+            <button id="my-btn" class="icon-btn">
+              <i class="fa fa-refresh" aria-hidden="true" style="font-size:20px;color:white;"></i>
+          </button>
+  
+            <span class="span"></span> 
+            Last Check:
+          </h3>
 
-          <a href="#" class="btn">Dispenser Now</a>
+          <h3 class="hero-text">100g</h3>
+          
+          
 
         </div>
       </section>

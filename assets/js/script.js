@@ -61,3 +61,60 @@ const activeElemOnScroll = function () {
 }
 
 addEventOnElem(window, "scroll", activeElemOnScroll);
+
+
+/**
+ * button effect
+ */
+
+var ableToClick = true;
+
+function buttonClick() {
+  if (!ableToClick) return;
+  ableToClick = false;
+
+  let splash = document.getElementById("splash");
+
+  // Reset splash properties
+  splash.style.transitionDuration = "0s";
+  splash.style.width = "0";
+  splash.style.height = "0";
+  splash.style.opacity = "1";
+
+  // Trigger a reflow
+  splash.offsetHeight;
+
+  // Apply animation properties
+  splash.style.transitionDuration = "0.5s";
+  splash.style.width = "150%"; // Adjust width based on your button size and shape
+  splash.style.height = "150%"; // Adjust height based on your button size and shape
+  splash.style.opacity = "0";
+
+  // Enable clicking after animation completes
+  setTimeout(function () {
+      ableToClick = true;
+      splash.style.transitionDuration = "0s"; // Reset transition duration for the next click
+  }, 500);
+}
+
+/**
+ * refresh btn
+ */
+window.onload = function () {
+  var btn = document.getElementById('my-btn');
+
+  btn.onclick = function (event) {
+      event.preventDefault(); // Prevent the default behavior of the button click
+
+      btn.children[0].classList.add('spin-animation');
+
+      setTimeout(function () {
+          btn.children[0].classList.remove('spin-animation');
+
+          // Delay the reload to allow the animation to complete
+          setTimeout(function () {
+              location.reload();
+          }, 500);
+      }, 500);
+  }
+}
