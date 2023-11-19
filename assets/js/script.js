@@ -118,3 +118,25 @@ window.onload = function () {
       }, 500);
   }
 }
+
+
+async function buttonClick() { 
+  // const user = sessionStorage.getItem('userId')
+  try { 
+    // await fetchSaved()
+    await fetch('https://6uedf2x5re.execute-api.us-east-1.amazonaws.com/deploy')
+    .then((response) => {
+        if (!response.ok) {
+          return "Network was not ok";
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        return "Network was not ok";
+      });
+ 
+    
+  } catch (error) { 
+    console.error('Error fetching data:', error); 
+  } 
+} 
