@@ -121,21 +121,20 @@ window.onload = function () {
 
 
 function selectWeight(weight) {
-  // Reset the background color of all weight options
-  const weightOptions = document.getElementById(`weight-option-${weight}`);
-  const isSelected = weightOptions.classList.contains('selected');
+  var weightOption = document.getElementById("weight-option-" + weight);
+  var isSelected = weightOption.classList.contains("selected");
 
-  if (isSelected) {
-    weightOptions.classList.remove('selected');
-    selectedOption.style.backgroundColor = '';
-  } else {
-    weightOptions.classList.add('selected');
-    selectedOption.style.backgroundColor = '#ccc';
+  // Deselect the previously selected weight option
+  var selectedOption = document.querySelector(".weight-option.selected");
+  if (selectedOption) {
+    selectedOption.classList.remove("selected");
+    selectedOption.style.backgroundColor = "";
   }
 
-  // Set the background color of the selected weight option
-  // const selectedOption = document.getElementById(`weight-option-${weight}`);
-  // selectedOption.style.backgroundColor = '#ccc';
+  if (!isSelected) {
+    weightOption.classList.add("selected");
+    weightOption.style.backgroundColor = "#ccc";
+  }
 }
 
 
