@@ -412,8 +412,6 @@ body {
 
 .weight-container {
   display: flex;
-  /* overflow-x: auto;
-  white-space: nowrap; */
   max-width:0rem;
 }
 
@@ -435,6 +433,10 @@ body {
 }
 
 .weight-option:hover {
+  background-color: #ccc;
+}
+
+.weight-option.selected {
   background-color: #ccc;
 }
 

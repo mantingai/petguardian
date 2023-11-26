@@ -119,27 +119,23 @@ window.onload = function () {
   }
 }
 
-const weightContainer = document.querySelector('.weight-container');
-const weightOptions = document.querySelectorAll('.weight-option');
-let selectedWeight = 0;
 
 function selectWeight(weight) {
   // Reset the background color of all weight options
-  const weightOptions = document.querySelectorAll('.weight-option');
-  weightOptions.forEach(option => {
-    option.style.backgroundColor = '';
-  });
+  const weightOptions = document.getElementById(`weight-option-${weight}`);
+  const isSelected = weightOptions.classList.contains('selected');
 
-  const isSelected = weightOption.classList.contains('selected');
   if (isSelected) {
-    weightOption.classList.remove('selected');
+    weightOptions.classList.remove('selected');
+    selectedOption.style.backgroundColor = '';
   } else {
-    weightOption.classList.add('selected');
+    weightOptions.classList.add('selected');
+    selectedOption.style.backgroundColor = '#ccc';
   }
 
   // Set the background color of the selected weight option
-  const selectedOption = document.getElementById(`weight-option-${weight}`);
-  selectedOption.style.backgroundColor = '#ccc';
+  // const selectedOption = document.getElementById(`weight-option-${weight}`);
+  // selectedOption.style.backgroundColor = '#ccc';
 }
 
 
@@ -152,17 +148,13 @@ async function buttonClick() {
     const weight = parseInt(selectedOption.innerText);
     console.log(`Dispensing ${weight}g`);
 
-    // Perform the dispensing logic based on the selected weight
-    // Replace this with your actual dispensing code
-    
-
     try {
       const response = await fetch('https://4nak6e18qg.execute-api.us-east-1.amazonaws.com/dev/dispenseToDynamo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ topic:'user_1', weight: weight })
+        body: JSON.stringify({ topic:'user_1',weight: weight })
       });
 
       if (!response.ok) {
