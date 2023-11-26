@@ -119,24 +119,53 @@ window.onload = function () {
   }
 }
 
+const weightContainer = document.querySelector('.weight-container');
+const weightOptions = document.querySelectorAll('.weight-option');
+let selectedWeight = 0;
 
-async function buttonClick() { 
-  // const user = sessionStorage.getItem('userId')
-  try { 
-    // await fetchSaved()
-    await fetch('https://6uedf2x5re.execute-api.us-east-1.amazonaws.com/deploy')
-    .then((response) => {
-        if (!response.ok) {
-          return "Network was not ok";
-        }
-        return response.json();
-      })
-      .catch((error) => {
-        return "Network was not ok";
-      });
- 
+function selectWeight(weight) {
+  // Reset the background color of all weight options
+  const weightOptions = document.querySelectorAll('.weight-option');
+  weightOptions.forEach(option => {
+    option.style.backgroundColor = '';
+  });
+
+  // Set the background color of the selected weight option
+  const selectedOption = document.getElementById(`weight-option-${weight}`);
+  selectedOption.style.backgroundColor = '#ccc';
+}
+
+
+async function buttonClick() {
+  // Get the selected weight option
+  const selectedOption = document.querySelector('.weight-option[style="background-color: rgb(204, 204, 204);"]');
+  
+  if (selectedOption) {
+    // Get the weight value from the selected option
+    const weight = parseInt(selectedOption.innerText);
+
+    // Perform the dispensing logic based on the selected weight
+    // Replace this with your actual dispensing code
     
-  } catch (error) { 
-    console.error('Error fetching data:', error); 
-  } 
-} 
+
+    try {
+      const response = await fetch('https://your-api-gateway-url.execute-api.your-region.amazonaws.com/your-stage', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ weight: weight })
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      console.log(data); // Handle the response data as needed
+      console.log(`Dispensing ${weight}g`);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+}

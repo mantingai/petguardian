@@ -120,11 +120,22 @@
       <section class="section hero has-bg-image" id="home" aria-label="home"
         style="background-image: url('./assets/images/hero-banner.jpg')">
         <div class="container">
+          <p>Pick Your Option: </p>
 
-          <div class="button" onmousedown="buttonClick()">Dispenser <br>Now
-            <div id="splash"></div>
+          <div class="weight-container">
+            
+            <div class="weight-option" onclick="selectWeight(100)">100g</div>
+            <div class="weight-option" onclick="selectWeight(200)">200g</div>
+            <div class="weight-option" onclick="selectWeight(500)">500g</div>
+
+            <div class="button" onmousedown="buttonClick()">Dispenser <br>Now
+              <div id="splash"></div>
+            </div>
+  
+
           </div>
 
+          
           <h3 class="h1 hero-title">
             <button id="my-btn" class="icon-btn">
               <i class="fa fa-refresh" aria-hidden="true" style="font-size:20px;color:white;"></i>

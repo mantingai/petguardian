@@ -410,6 +410,35 @@ body {
 
 .hero .btn:is(:hover, :focus) { background-color: var(--portland-orange); }
 
+.weight-container {
+  display: flex;
+  /* overflow-x: auto;
+  white-space: nowrap; */
+  max-width:0rem;
+}
+
+.hero p{
+  font-family: var(--ff-bangers);
+  font-size: var(--fs-3);
+}
+
+.weight-option {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  /* transition: opacity 0.5s ease; */
+  font-family: var(--ff-bangers);
+  font-size: var(--fs-2);
+  color: white;
+  margin-bottom: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.weight-option:hover {
+  background-color: #ccc;
+}
+
 
 /*-----------------------------------*\
   #button
@@ -418,20 +447,27 @@ body {
 
 
 .button {
-  position: relative;
+  position: absolute;
   background-color: var(--black);
   color: var(--white);
   max-width: max-content;
-  padding: 8vw 8vw;
+  padding: 2.5vw 2.5vw;
   font-weight: var(--fw-700);
   border-radius: 100%;
   overflow: hidden;
   text-align: center;
   /* font-size: var(--fs-3); */
   font-family: var(--ff-bangers);
-  font-size: var(--fs-2);
+  font-size: var(--fs-4);
   font-weight: var(--fw-400);
   letter-spacing: 1px;
+  /* margin-left: auto; margin-right: auto; */
+  left: 53rem; 
+  top: 30rem;
+}
+
+.button:hover {
+  cursor: pointer;
 }
 
 .button #splash {
