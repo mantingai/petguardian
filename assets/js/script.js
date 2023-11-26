@@ -130,6 +130,13 @@ function selectWeight(weight) {
     option.style.backgroundColor = '';
   });
 
+  const isSelected = weightOption.classList.contains('selected');
+  if (isSelected) {
+    weightOption.classList.remove('selected');
+  } else {
+    weightOption.classList.add('selected');
+  }
+
   // Set the background color of the selected weight option
   const selectedOption = document.getElementById(`weight-option-${weight}`);
   selectedOption.style.backgroundColor = '#ccc';
@@ -138,23 +145,24 @@ function selectWeight(weight) {
 
 async function buttonClick() {
   // Get the selected weight option
-  const selectedOption = document.querySelector('.weight-option[style="background-color: rgb(204, 204, 204);"]');
+  const selectedOption = document.querySelector('.weight-option.selected');
   
   if (selectedOption) {
     // Get the weight value from the selected option
     const weight = parseInt(selectedOption.innerText);
+    console.log(`Dispensing ${weight}g`);
 
     // Perform the dispensing logic based on the selected weight
     // Replace this with your actual dispensing code
     
 
     try {
-      const response = await fetch('https://your-api-gateway-url.execute-api.your-region.amazonaws.com/your-stage', {
+      const response = await fetch('https://4nak6e18qg.execute-api.us-east-1.amazonaws.com/dev/dispenseToDynamo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ weight: weight })
+        body: JSON.stringify({ topic:'user_1', weight: weight })
       });
 
       if (!response.ok) {
