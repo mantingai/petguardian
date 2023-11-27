@@ -1,7 +1,6 @@
 'use strict';
 
 
-
 /**
  * add event on element
  */
@@ -148,10 +147,13 @@ async function buttonClick() {
     console.log(`Dispensing ${weight}g`);
 
     try {
-      const response = await fetch('https://mnxlf45yf2.execute-api.us-east-1.amazonaws.com/dev', {
+      const API_KEY = 'NwlLBHrXou1LrzMWsivMvakSavMGw8285RGMrq8X';
+      
+      const response = await fetch('https://sv128yynvk.execute-api.us-east-1.amazonaws.com/dev/dev', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'x-api-key': API_KEY
         },
         body: JSON.stringify({ topic:'user_1',weight: weight })
       });
