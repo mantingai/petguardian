@@ -148,7 +148,7 @@ async function buttonClick() {
     console.log(`Dispensing ${weight}g`);
 
     try {
-      const response = await fetch('https://4nak6e18qg.execute-api.us-east-1.amazonaws.com/dev/dispenseToDynamo', {
+      const response = await fetch('https://mnxlf45yf2.execute-api.us-east-1.amazonaws.com/dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
