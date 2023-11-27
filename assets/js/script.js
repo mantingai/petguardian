@@ -147,15 +147,16 @@ async function buttonClick() {
     console.log(`Dispensing ${weight}g`);
 
     try {
-      const API_KEY = 'NwlLBHrXou1LrzMWsivMvakSavMGw8285RGMrq8X';
+      // const API_KEY = 'NwlLBHrXou1LrzMWsivMvakSavMGw8285RGMrq8X';
       
-      const response = await fetch('https://sv128yynvk.execute-api.us-east-1.amazonaws.com/dev/dev', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': API_KEY
-        },
-        body: JSON.stringify({ topic:'user_1',weight: weight })
+      const response = await fetch('https://wvhfjt9in5.execute-api.us-east-1.amazonaws.com/dev/dispenseToDynamo', 
+      {
+        method: "POST",
+        // headers: {
+        //   'Content-Type': 'application/json',
+        //   // 'x-api-key': API_KEY
+        // },
+        body: JSON.stringify({ topic:"user_1", weight: weight })
       });
 
       if (!response.ok) {
