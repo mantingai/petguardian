@@ -149,7 +149,7 @@ async function buttonClick() {
     try {
       // const API_KEY = 'NwlLBHrXou1LrzMWsivMvakSavMGw8285RGMrq8X';
       
-      const response = await fetch('https://wvhfjt9in5.execute-api.us-east-1.amazonaws.com/dev/dispenseToDynamo', 
+      const response = await fetch('https://sv128yynvk.execute-api.us-east-1.amazonaws.com/dev/post', 
       {
         method: "POST",
         // headers: {
@@ -170,4 +170,27 @@ async function buttonClick() {
       console.error('Error:', error);
     }
   }
+}
+
+async function fetchCurrentWeight() { 
+  try { 
+    const response = await fetch('https://sv128yynvk.execute-api.us-east-1.amazonaws.com/dev/get');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    displayCurrentWeight(data);
+  } catch (error) { 
+    console.error('Error fetching data:', error); 
+  } 
+}
+
+
+function displayCurrentWeight(data) { 
+  const homePagePostDiv = document.getElementById('main-allpost'); 
+  let html = ''; 
+  data.forEach((post) => { 
+    html += `<h3 class="hero-text">${post.weight}g</h3>`; 
+  }); 
+  homePagePostDiv.innerHTML = html; 
 }
