@@ -1,5 +1,32 @@
 'use strict';
 
+async function fetchCurrentWeight() { 
+  try { 
+    const response = await fetch('https://sv128yynvk.execute-api.us-east-1.amazonaws.com/dep/get', 
+    {
+      method: "GET"
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    console.log('ok')
+    const data = await response.json();
+    displayCurrentWeight(data);
+  } catch (error) { 
+    console.error('Error fetching data:', error); 
+  } 
+  console.log(response); // Add this line to log the response object
+}
+
+function displayCurrentWeight(data) { 
+  const homePagePostDiv = document.getElementById('main-allpost'); 
+  let html = ''; 
+  data.forEach((post) => { 
+    html += `<h3 class="hero-text">${post.weight}g</h3>`; 
+  }); 
+  homePagePostDiv.innerHTML = html; 
+}
+
 
 /**
  * add event on element
@@ -172,25 +199,3 @@ async function buttonClick() {
   }
 }
 
-async function fetchCurrentWeight() { 
-  try { 
-    const response = await fetch('https://sv128yynvk.execute-api.us-east-1.amazonaws.com/dev/get');
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const data = await response.json();
-    displayCurrentWeight(data);
-  } catch (error) { 
-    console.error('Error fetching data:', error); 
-  } 
-}
-
-
-function displayCurrentWeight(data) { 
-  const homePagePostDiv = document.getElementById('main-allpost'); 
-  let html = ''; 
-  data.forEach((post) => { 
-    html += `<h3 class="hero-text">${post.weight}g</h3>`; 
-  }); 
-  homePagePostDiv.innerHTML = html; 
-}
