@@ -190,6 +190,7 @@ async function buttonClick() {
       const data = await response.json();
       console.log(data); // Handle the response data as needed
       console.log(`Dispensing ${weight}g`);
+      alert("It has been dispensed");
     } catch (error) {
       console.error('Error:', error);
     }
